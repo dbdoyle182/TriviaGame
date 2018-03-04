@@ -1,7 +1,7 @@
 // Trivia questions object array
 
-questions = [{
-    q1: [{
+
+var q1 = [{
         a1: {
             answer: "This is the correct answer",
             value: true,
@@ -18,8 +18,8 @@ questions = [{
             answer: "This is the last answer",
             value: false,
         }
-    }],
-    q2: [{
+    }];
+var q2 = [{
         a1: {
             answer: "This is the correct answer2",
             value: true,
@@ -36,8 +36,8 @@ questions = [{
             answer: "This is the last answer",
             value: false,
         }
-    }],
-    q3: [{
+    }];
+var q3 = [{
         a1: {
             answer: "This is the correct answer3",
             value: true,
@@ -54,8 +54,8 @@ questions = [{
             answer: "This is the last answer",
             value: false,
         }
-    }],
-    q4: [{
+    }];
+var q4 = [{
         a1: {
             answer: "This is the correct answer4",
             value: true,
@@ -72,67 +72,19 @@ questions = [{
             answer: "This is the last answer",
             value: false,
         }
-    }],
-    q5: [{
-        a1: {
-            answer: "This is the correct answer5",
-            value: true,
-        },
-        a2: {
-            answer: "This is the second answer",
-            value: false,
-        },
-        a3: {
-            answer: "This is the third answer",
-            value: false,
-        },
-        a4: {
-            answer: "This is the last answer",
-            value: false,
-        }
-    }],
-    q6: [{
-        a1: {
-            answer: "This is the correct answer6",
-            value: true,
-        },
-        a2: {
-            answer: "This is the second answer",
-            value: false,
-        },
-        a3: {
-            answer: "This is the third answer",
-            value: false,
-        },
-        a4: {
-            answer: "This is the last answer",
-            value: false,
-        }
-    }],
-    q7: [{
-        a1: {
-            answer: "This is the correct answer7",
-            value: true,
-        },
-        a2: {
-            answer: "This is the second answer",
-            value: false,
-        },
-        a3: {
-            answer: "This is the third answer",
-            value: false,
-        },
-        a4: {
-            answer: "This is the last answer",
-            value: false,
-        }
-    }],
-}];
+    }];
+var questions = [q1, q2, q3, q4]
+var questionsPrompted = []
 
 // Function that determines the question that appears
 
 var questionFunc = function () {
-    
+    var selectedQuestion = questions[Math.floor(Math.random() * questions.length)]
+    if (questionsPrompted.indexOf(selectedQuestion) < 0) {
+        questionsPrompted.push(selectedQuestion);
+        console.log(questionsPrompted)
+    }
+
 }
 
 // Function that displays the array in the game id 
