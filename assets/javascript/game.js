@@ -1,91 +1,62 @@
-// Trivia questions object array
+// Trivia questions object
+
+var gameQuestions = [{
+    question: "In what year was Nintendo founded?",
+    answerList: ["1929", "1962", "1889", "1901"],
+    correctAnswer: 3,
+},{
+    question: "Who was the original founder of Nintendo?",
+    answerList: ["Tatsumi Kimishima", "Shigeru Miyamoto", "Hideo Kojima", "Fusajiro Yamauchi"],
+    correctAnswer: 4,
+},{
+    question: "What was Nintendo's initial product?",
+    answerList: ["A playing card company", "A cab service", "A chain of love hotels", "A plumbing company"],
+    correctAnswer: 1,
+},{
+    question: "Where is the headquarters of Nintendo based?",
+    answerList: ["Tokyo, Japan", "Kyoto, Japan", "Osaka, Japan", "Yokohama, Japan"],
+    correctAnswer: 2,
+},{
+    question: "Which of the following is NOT one of Nintendo's earlier business ventures?",
+    answerList: ["A love hotel chain", "A taxi company", "A car company", "A food company"],
+    correctAnswer: 3,
+},{
+    question: "When was Nintendo's first venture into the video game industry?",
+    answerList: ["1974", "1965", "1981", "1970"],
+    correctAnswer: 1,
+},{
+    question: "What was Nintendo's first handheld gaming system?",
+    answerList: ["Game Boy", "Nintendo 64", "Game and Watch", "SNES"],
+    correctAnswer: 3,
+}, {
+    question: "Which one of these consoles did Nintendo release in 2001?",
+    answerList: ["Game Boy Advance SP", "Super Famicon Jr.", "Gamecube", "Wii"],
+    correctAnswer: 3,
+},{
+    question: "What is the name for the design of Nintendo handhelds following the Game Boy Advance SP?",
+    answerList: ["Lobster", "Clamshell", "Clamped", "Turtleshell"],
+    correctAnswer: 2,
+},{
+    question: "What is the name of the mustachioed plumber hero in many of Nintendo's games? (Wears the red cap)",
+    answerList: ["Marco", "Fontaine", "Luigi", "Mario"],
+    correctAnswer: 4,
+}]
+
+// Game global variables
+
+var correct;
+var incorrect;
+var time;
+var messages = {
+    rightAnswer: "Congrats that was the correct answer!",
+    wrongAnswer: "Oops, looks like you got that one wrong!"
+}
 
 
-var q1 = [{
-        a1: {
-            answer: "This is the correct answer",
-            value: true,
-        },
-        a2: {
-            answer: "This is the second answer",
-            value: false,
-        },
-        a3: {
-            answer: "This is the third answer",
-            value: false,
-        },
-        a4: {
-            answer: "This is the last answer",
-            value: false,
-        }
-    }];
-var q2 = [{
-        a1: {
-            answer: "This is the correct answer2",
-            value: true,
-        },
-        a2: {
-            answer: "This is the second answer",
-            value: false,
-        },
-        a3: {
-            answer: "This is the third answer",
-            value: false,
-        },
-        a4: {
-            answer: "This is the last answer",
-            value: false,
-        }
-    }];
-var q3 = [{
-        a1: {
-            answer: "This is the correct answer3",
-            value: true,
-        },
-        a2: {
-            answer: "This is the second answer",
-            value: false,
-        },
-        a3: {
-            answer: "This is the third answer",
-            value: false,
-        },
-        a4: {
-            answer: "This is the last answer",
-            value: false,
-        }
-    }];
-var q4 = [{
-        a1: {
-            answer: "This is the correct answer4",
-            value: true,
-        },
-        a2: {
-            answer: "This is the second answer",
-            value: false,
-        },
-        a3: {
-            answer: "This is the third answer",
-            value: false,
-        },
-        a4: {
-            answer: "This is the last answer",
-            value: false,
-        }
-    }];
-var questions = [q1, q2, q3, q4]
-var questionsPrompted = []
 
 // Function that determines the question that appears
 
-var questionFunc = function () {
-    var selectedQuestion = questions[Math.floor(Math.random() * questions.length)]
-    if (questionsPrompted.indexOf(selectedQuestion) < 0) {
-        questionsPrompted.push(selectedQuestion);
-        console.log(questionsPrompted)
-    }
 
-}
 
 // Function that displays the array in the game id 
 
