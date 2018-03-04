@@ -128,17 +128,18 @@ var solution = function () {
     $(".question").empty();
     $(".answerList").empty();
     clearInterval(time);
-    $("#userPick").text("You selected " + gameQuestions[currentQuestion].answerList[userSelected])
     var correctText = gameQuestions[currentQuestion].question
     var correctAnswerIndex = gameQuestions[currentQuestion].correctAnswer
     console.log(correctAnswerIndex)
     if (userSelected === correctAnswerIndex && answered === true) {
+        $("#userPick").text("You selected " + gameQuestions[currentQuestion].answerList[userSelected]);
         $("#message").text(messages.rightAnswer);
         $("#correctAnswer").text("The correct answer was: " + gameQuestions[currentQuestion].answerList[gameQuestions[currentQuestion].correctAnswer]);
         correct++
         currentQuestion++
         setTimeout(newQuestion, 10000);
     } else if (userSelected != correctAnswerIndex && answered === true) {
+        $("#userPick").text("You selected " + gameQuestions[currentQuestion].answerList[userSelected]);
         $("#message").text(messages.wrongAnswer);
         $("#correctAnswer").text("The correct answer was: " + gameQuestions[currentQuestion].answerList[gameQuestions[currentQuestion].correctAnswer]);
         incorrect++
@@ -151,7 +152,7 @@ var solution = function () {
         setTimeout(newQuestion, 10000);
         currentQuestion++;
     };
-}
+};
 
 
 });
