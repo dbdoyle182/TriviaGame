@@ -82,7 +82,7 @@ var newGame = function() {
 // Timer function
 
 var timer = function() {
-    seconds = 30;
+    seconds = 15;
     $("#timer").text("Time Remaining: " + seconds)
     time = setInterval(countdown, 1000)
     answered = true;
@@ -99,26 +99,29 @@ var countdown = function() {
 }
 
 var newQuestion = function () {
-    $("#correctAnswer").empty();
-    $("#message").empty();
-    $("#userPick").empty();
-    $("#currentQuestion").text("Current Question: " + (currentQuestion + 1));
-    $(".question").text(gameQuestions[currentQuestion].question);
-    for (var i = 0; i < gameQuestions[currentQuestion].answerList.length; i++) {
-        var possibleChoices = $("<div>");
-        possibleChoices.text(gameQuestions[currentQuestion].answerList[i])
-        possibleChoices.attr({"data-index" : i});
-        possibleChoices.addClass("choice");
-        $(".answerList").append(possibleChoices);
+    if (currentQuestion < 10) {
+        $("#correctAnswer").empty();
+        $("#message").empty();
+        $("#userPick").empty();
+        $("#currentQuestion").text("Current Question: " + (currentQuestion + 1));
+        $(".question").text(gameQuestions[currentQuestion].question);
+        for (var i = 0; i < gameQuestions[currentQuestion].answerList.length; i++) {
+            var possibleChoices = $("<div>");
+            possibleChoices.text(gameQuestions[currentQuestion].answerList[i])
+            possibleChoices.attr({"data-index" : i});
+            possibleChoices.addClass("choice");
+            $(".answerList").append(possibleChoices);
+        };
+        timer();
+
+        $(".choice").on("click", function() {
+            userSelected = $(this).data("index");
+            answered = true;
+            solution();
+        });
+    } else {
+        resultsPage();
     };
-    timer();
-
-    $(".choice").on("click", function() {
-        userSelected = $(this).data("index");
-        answered = true;
-        solution();
-    });
-
     
 };
 
@@ -137,21 +140,22 @@ var solution = function () {
         $("#correctAnswer").text("The correct answer was: " + gameQuestions[currentQuestion].answerList[gameQuestions[currentQuestion].correctAnswer]);
         correct++
         currentQuestion++
-        setTimeout(newQuestion, 10000);
+        setTimeout(newQuestion, 7000);
     } else if (userSelected != correctAnswerIndex && answered === true) {
         $("#userPick").text("You selected " + gameQuestions[currentQuestion].answerList[userSelected]);
         $("#message").text(messages.wrongAnswer);
         $("#correctAnswer").text("The correct answer was: " + gameQuestions[currentQuestion].answerList[gameQuestions[currentQuestion].correctAnswer]);
         incorrect++
         currentQuestion++
-        setTimeout(newQuestion, 10000);
+        setTimeout(newQuestion, 7000);
     } else {
         unanswered++;
         $("#message").text(messages.timeOut);
         $("#correctAnswer").text("The correct answer was: " + gameQuestions[currentQuestion].answerList[gameQuestions[currentQuestion].correctAnswer])
-        setTimeout(newQuestion, 10000);
+        setTimeout(newQuestion, 7000);
         currentQuestion++;
     };
+
 };
 
 var resultsPage = function() {
@@ -170,7 +174,7 @@ var resultsPage = function() {
     resetButton.text("Restart");
     $("#button").append(resetButton);
     
-}
+};
 
 
 });
