@@ -66,7 +66,8 @@ $("#startButton").on("click", function(){
     newGame();
 });
 
-// Reset game button function for the final screen
+
+
 
 // Start game function
 
@@ -140,19 +141,19 @@ var solution = function () {
         $("#correctAnswer").text("The correct answer was: " + gameQuestions[currentQuestion].answerList[gameQuestions[currentQuestion].correctAnswer]);
         correct++
         currentQuestion++
-        setTimeout(newQuestion, 7000);
+        setTimeout(newQuestion, 5000);
     } else if (userSelected != correctAnswerIndex && answered === true) {
         $("#userPick").text("You selected " + gameQuestions[currentQuestion].answerList[userSelected]);
         $("#message").text(messages.wrongAnswer);
         $("#correctAnswer").text("The correct answer was: " + gameQuestions[currentQuestion].answerList[gameQuestions[currentQuestion].correctAnswer]);
         incorrect++
         currentQuestion++
-        setTimeout(newQuestion, 7000);
+        setTimeout(newQuestion, 5000);
     } else {
         unanswered++;
         $("#message").text(messages.timeOut);
         $("#correctAnswer").text("The correct answer was: " + gameQuestions[currentQuestion].answerList[gameQuestions[currentQuestion].correctAnswer])
-        setTimeout(newQuestion, 7000);
+        setTimeout(newQuestion, 5000);
         currentQuestion++;
     };
 
@@ -160,19 +161,29 @@ var solution = function () {
 
 var resultsPage = function() {
     clearInterval(time);
-    $("#timer").empty();
-    $("#currentQuestion").empty();
-    $(".question").empty();
-    $(".answerList").empty();
-    $("#endGame").text(endGame);
+    $("#userPick").empty();
+    $("#message").empty();
+    $("#correctAnswer").empty();
+    $("#endGame").text(messages.endGame);
     $("#correct").text("You answered " + correct + " correct");
     $("#incorrect").text("You answered " + incorrect + " incorrect");
     $("#unanswered").text("You left " + unanswered + "unanswered");
+    
+// Build reset button   
     var resetButton = $("<button>");
     resetButton.addClass("btn btn-primary");
-    resetButton.attr("id", "startButton");
+    resetButton.attr("id", "resetButton");
     resetButton.text("Restart");
     $("#button").append(resetButton);
+
+    $("#resetButton").on("click", function(){ 
+        $(this).hide();
+        $("#endGame").empty();
+        $("#correct").empty();
+        $("#incorrect").empty();
+        $("#unanswered").empty();
+        newGame();
+    });
     
 };
 
