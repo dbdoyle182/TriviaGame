@@ -40,16 +40,22 @@ var gameQuestions = [{
     question: "What is the name of the mustachioed plumber hero in many of Nintendo's games? (Wears the red cap)",
     answerList: ["Marco", "Fontaine", "Luigi", "Mario"],
     correctAnswer: 4,
-}]
+}];
 
 // Game global variables
 
 var correct;
 var incorrect;
+var unanswered;
+var answered;
+var seconds;
 var time;
+var userSelected;
 var messages = {
     rightAnswer: "Congrats that was the correct answer!",
-    wrongAnswer: "Oops, looks like you got that one wrong!"
+    wrongAnswer: "Oops, looks like you got that one wrong!",
+    endGame: "Let's see how much you know about Nintendo!",
+    timeOut: "You ran out of time!",
 }
 
 
