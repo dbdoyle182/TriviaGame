@@ -60,9 +60,9 @@ var messages = {
 
 
 
-// Function that determines the question that appears
+// Start game function
 
-
-
-// Function that displays the array in the game id 
+var newGame = function() {
+    
+}
 
