@@ -107,10 +107,10 @@ var newQuestion = function () {
         $("#currentQuestion").text("Current Question: " + (currentQuestion + 1));
         $(".question").text(gameQuestions[currentQuestion].question);
         for (var i = 0; i < gameQuestions[currentQuestion].answerList.length; i++) {
-            var possibleChoices = $("<div>");
+            var possibleChoices = $("<button>");
             possibleChoices.text(gameQuestions[currentQuestion].answerList[i])
             possibleChoices.attr({"data-index" : i});
-            possibleChoices.addClass("choice");
+            possibleChoices.addClass("choice btn btn-primary m-2 border border-dark rounded");
             $(".answerList").append(possibleChoices);
         };
         timer();
