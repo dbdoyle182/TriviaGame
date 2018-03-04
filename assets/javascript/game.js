@@ -167,11 +167,11 @@ var resultsPage = function() {
     $("#endGame").text(messages.endGame);
     $("#correct").text("You answered " + correct + " correct");
     $("#incorrect").text("You answered " + incorrect + " incorrect");
-    $("#unanswered").text("You left " + unanswered + "unanswered");
+    $("#unanswered").text("You left " + unanswered + " unanswered");
     
 // Build reset button   
     var resetButton = $("<button>");
-    resetButton.addClass("btn btn-primary");
+    resetButton.addClass("btn btn-dark");
     resetButton.attr("id", "resetButton");
     resetButton.text("Restart");
     $("#button").append(resetButton);
