@@ -56,13 +56,23 @@ var messages = {
     wrongAnswer: "Oops, looks like you got that one wrong!",
     endGame: "Let's see how much you know about Nintendo!",
     timeOut: "You ran out of time!",
-}
+};
+$(document).ready(function(){
+// Start Button Functionality
+
+$("#startButton").on("click", function(){ 
+    $(this).hide();
+    newGame();
+    console.log("this button works");
+})
 
 
 
 // Start game function
 
 var newGame = function() {
-    
+    correct = 0;
+    incorrect = 0;
 }
 
+});
