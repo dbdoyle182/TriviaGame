@@ -94,12 +94,14 @@ var countdown = function() {
     if (seconds < 1){
         clearInterval(time)
         answered = false;
+        solution();
     };
 }
 
 var newQuestion = function () {
     $("#correctAnswer").empty();
     $("#message").empty();
+    $("#userPick").empty();
     $("#currentQuestion").text("Current Question: " + (currentQuestion + 1));
     $(".question").text(gameQuestions[currentQuestion].question);
     for (var i = 0; i < gameQuestions[currentQuestion].answerList.length; i++) {
@@ -116,6 +118,8 @@ var newQuestion = function () {
         answered = true;
         solution();
     });
+
+    
 };
 
 var solution = function () {
@@ -125,9 +129,9 @@ var solution = function () {
     $(".answerList").empty();
     clearInterval(time);
     $("#userPick").text("You selected " + gameQuestions[currentQuestion].answerList[userSelected])
-    var correctText = (gameQuestions[currentQuestion].question)
-    var correctAnswerIndex = (gameQuestions[currentQuestion].answer)
-
+    var correctText = gameQuestions[currentQuestion].question
+    var correctAnswerIndex = gameQuestions[currentQuestion].correctAnswer
+    console.log(correctAnswerIndex)
     if (userSelected === correctAnswerIndex && answered === true) {
         $("#message").text(messages.rightAnswer);
         $("#correctAnswer").text("The correct answer was: " + gameQuestions[currentQuestion].answerList[gameQuestions[currentQuestion].correctAnswer]);
@@ -145,6 +149,7 @@ var solution = function () {
         $("#message").text(messages.timeOut);
         $("#correctAnswer").text("The correct answer was: " + gameQuestions[currentQuestion].answerList[gameQuestions[currentQuestion].correctAnswer])
         setTimeout(newQuestion, 10000);
+        currentQuestion++;
     };
 }
 
