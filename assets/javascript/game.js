@@ -154,5 +154,23 @@ var solution = function () {
     };
 };
 
+var resultsPage = function() {
+    clearInterval(time);
+    $("#timer").empty();
+    $("#currentQuestion").empty();
+    $(".question").empty();
+    $(".answerList").empty();
+    $("#endGame").text(endGame);
+    $("#correct").text("You answered " + correct + " correct");
+    $("#incorrect").text("You answered " + incorrect + " incorrect");
+    $("#unanswered").text("You left " + unanswered + "unanswered");
+    var resetButton = $("<button>");
+    resetButton.addClass("btn btn-primary");
+    resetButton.attr("id", "startButton");
+    resetButton.text("Restart");
+    $("#button").append(resetButton);
+    
+}
+
 
 });
