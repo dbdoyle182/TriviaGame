@@ -182,7 +182,7 @@ var resultsPage = function() {
         $("#correct").empty();
         $("#incorrect").empty();
         $("#unanswered").empty();
-        newGame();
+        $("#startButton").show();
     });
     
 };
