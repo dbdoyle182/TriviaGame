@@ -57,11 +57,50 @@ var messages = {
     wrongAnswer: "Oops, looks like you got that one wrong!",
     endGame: "Let's see how much you know about Nintendo!",
     timeOut: "You ran out of time!",
+    lowerScore: "Looks like you should study more",
+    middleScore: "You must be quite the Nintendo aficionado",
+    topScore: "You're a true SuperStar!"
 };
 var gifArray = [{
-    giflink: "assets/images/marioearth.gif",
-    alt: "Earth with Mario's face",
-}]
+        giflink: "assets/images/kid-tv.gif",
+        alt: "Kid playing video games",
+    },{
+        giflink: "assets/images/starfox-flight.gif",
+        alt: "Starfox footage"
+    },{
+        giflink: "assets/images/cardgames.gif",
+        alt: "Pokemon cards"
+    },{
+        giflink: "assets/images/marioearth.gif",
+        alt: "The earth with Mario"
+    },{
+        giflink: "assets/images/oldmario.gif",
+        alt: "Three super mario games"
+    },{
+        giflink: "assets/images/electric-snes.gif",
+        alt: "A lightning bolt across the SNES logo"
+    },{
+        giflink: "assets/images/gameandwatch.gif",
+        alt: "A game and watch party"
+    },{
+        giflink: "assets/images/gamecube.gif",
+        alt: "Gamecube starting screen"
+    },{
+        giflink: "assets/images/3ds.gif",
+        alt: "Nintendo 3DS Console"
+    },{
+        giflink: "assets/images/breakdance-mario.gif",
+        alt: "Mario breakdancing"
+    },{
+        giflink: "assets/images/loser.gif",
+        alt: "A monkey lost in a sea of luigi"
+    },{
+        giflink: "assets/images/winner.gif",
+        alt: "A badass Mario"
+    },{
+        giflink: "assets/images/top-score.gif",
+        alt: "The Mario brothers dancing"
+    }]
 $(document).ready(function(){
 // Start Button Functionality
 
@@ -70,7 +109,49 @@ $("#startButton").on("click", function(){
     newGame();
 });
 
+// Reset Button Function
+   
+var resetButton = $("<button>");
+resetButton.addClass("btn btn-dark");
+resetButton.attr("id", "resetButton");
+resetButton.text("Restart");
+$("#button").append(resetButton);
 
+$("#resetButton").on("click", function(){ 
+    $(this).hide();
+    $("#endGame").empty();
+    $("#correct").empty();
+    $("#incorrect").empty();
+    $("#unanswered").empty();
+    $("#gifSpace").empty();
+    $("#score").empty();
+    $("#startButton").show();
+});
+
+$(resetButton).hide();
+// End Game function
+
+var endgameScore = function(score) {
+    if (score >= 9) {
+        var gif = $("<img>")
+        $(gif).attr({"src": gifArray[12].giflink, "alt": gifArray[12].alt });
+        $(gif).css({"height": "300px", "width": "300px"});
+        $("#gifSpace").html(gif);
+        $("#score").text(messages.topScore);
+    } else if (score >= 6) {
+        var gif = $("<img>")
+        $(gif).attr({"src": gifArray[11].giflink, "alt": gifArray[11].alt });
+        $(gif).css({"height": "300px", "width": "300px"});
+        $("#gifSpace").html(gif);
+        $("#score").text(messages.middleScore);
+    } else {
+        var gif = $("<img>")
+        $(gif).attr({"src": gifArray[10].giflink, "alt": gifArray[10].alt });
+        $(gif).css({"height": "300px", "width": "300px"});
+        $("#gifSpace").html(gif);
+        $("#score").text(messages.lowerScore);
+    }
+};
 
 
 // Start game function
@@ -87,7 +168,7 @@ var newGame = function() {
 // Timer function
 
 var timer = function() {
-    seconds = 15;
+    seconds = 10;
     $("#timer").text("Time Remaining: " + seconds)
     time = setInterval(countdown, 1000)
     answered = true;
@@ -177,24 +258,16 @@ var resultsPage = function() {
     $("#correct").text("You answered " + correct + " correct");
     $("#incorrect").text("You answered " + incorrect + " incorrect");
     $("#unanswered").text("You left " + unanswered + " unanswered");
-    
-// Build reset button   
-    var resetButton = $("<button>");
-    resetButton.addClass("btn btn-dark");
-    resetButton.attr("id", "resetButton");
-    resetButton.text("Restart");
-    $("#button").append(resetButton);
+    endgameScore(correct);
+    $(resetButton).show();
 
-    $("#resetButton").on("click", function(){ 
-        $(this).hide();
-        $("#endGame").empty();
-        $("#correct").empty();
-        $("#incorrect").empty();
-        $("#unanswered").empty();
-        $("#startButton").show();
-    });
     
+
+    
+
 };
+
+    
 
 
 });
