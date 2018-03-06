@@ -112,7 +112,8 @@ $("#startButton").on("click", function(){
 // Reset Button Function
    
 var resetButton = $("<button>");
-resetButton.addClass("btn btn-red");
+resetButton.addClass("btn");
+resetButton.css({"background-color": "red"})
 resetButton.attr("id", "resetButton");
 resetButton.text("Restart");
 $("#button").append(resetButton);
