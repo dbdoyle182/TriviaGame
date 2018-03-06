@@ -108,6 +108,7 @@ var newQuestion = function () {
         $("#correctAnswer").empty();
         $("#message").empty();
         $("#userPick").empty();
+        $("#gifSpace").empty();
         $("#currentQuestion").text("Current Question: " + (currentQuestion + 1));
         $(".question").text(gameQuestions[currentQuestion].question);
         for (var i = 0; i < gameQuestions[currentQuestion].answerList.length; i++) {
@@ -138,7 +139,10 @@ var solution = function () {
     clearInterval(time);
     var correctAnswerIndex = gameQuestions[currentQuestion].correctAnswer
     console.log(correctAnswerIndex)
-    $("#gifSpace").html("<img src=" + gifArray[currentQuestion].giflink + " alt=" + gifArray[currentQuestion].alt + ">")
+    var gif = $("<img>")
+    $(gif).attr({"src": gifArray[currentQuestion].giflink, "alt": gifArray[currentQuestion].alt });
+    $(gif).css({"height": "300px", "width": "300px"});
+    $("#gifSpace").html(gif)
     if (userSelected === correctAnswerIndex && answered === true) {
         $("#userPick").text("You selected " + gameQuestions[currentQuestion].answerList[userSelected]);
         $("#message").text(messages.rightAnswer);
@@ -168,6 +172,7 @@ var resultsPage = function() {
     $("#userPick").empty();
     $("#message").empty();
     $("#correctAnswer").empty();
+    $("#gifSpace").empty();
     $("#endGame").text(messages.endGame);
     $("#correct").text("You answered " + correct + " correct");
     $("#incorrect").text("You answered " + incorrect + " incorrect");
