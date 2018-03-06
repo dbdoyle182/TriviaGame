@@ -112,7 +112,7 @@ $("#startButton").on("click", function(){
 // Reset Button Function
    
 var resetButton = $("<button>");
-resetButton.addClass("btn btn-dark");
+resetButton.addClass("btn btn-danger");
 resetButton.attr("id", "resetButton");
 resetButton.text("Restart");
 $("#button").append(resetButton);
@@ -135,19 +135,19 @@ var endgameScore = function(score) {
     if (score >= 9) {
         var gif = $("<img>")
         $(gif).attr({"src": gifArray[12].giflink, "alt": gifArray[12].alt });
-        $(gif).css({"height": "300px", "width": "300px"});
+        $(gif).css({"height": "300px", "width": "300px", "margin": "0 auto"});
         $("#gifSpace").html(gif);
         $("#score").text(messages.topScore);
     } else if (score >= 6) {
         var gif = $("<img>")
         $(gif).attr({"src": gifArray[11].giflink, "alt": gifArray[11].alt });
-        $(gif).css({"height": "300px", "width": "300px"});
+        $(gif).css({"height": "300px", "width": "300px", "margin": "0 auto"});
         $("#gifSpace").html(gif);
         $("#score").text(messages.middleScore);
     } else {
         var gif = $("<img>")
         $(gif).attr({"src": gifArray[10].giflink, "alt": gifArray[10].alt });
-        $(gif).css({"height": "300px", "width": "300px"});
+        $(gif).css({"height": "300px", "width": "300px", "margin": "0 auto"});
         $("#gifSpace").html(gif);
         $("#score").text(messages.lowerScore);
     }
@@ -196,7 +196,7 @@ var newQuestion = function () {
             var possibleChoices = $("<button>");
             possibleChoices.text(gameQuestions[currentQuestion].answerList[i])
             possibleChoices.attr({"data-index" : i});
-            possibleChoices.addClass("choice btn btn-primary m-2 border border-dark rounded");
+            possibleChoices.addClass("choice btn btn-danger m-2 border border-dark rounded");
             $(".answerList").append(possibleChoices);
         };
         timer();
@@ -222,7 +222,7 @@ var solution = function () {
     console.log(correctAnswerIndex)
     var gif = $("<img>")
     $(gif).attr({"src": gifArray[currentQuestion].giflink, "alt": gifArray[currentQuestion].alt });
-    $(gif).css({"height": "300px", "width": "300px"});
+    $(gif).css({"height": "300px", "width": "300px", "margin": "0 auto"});
     $("#gifSpace").html(gif)
     if (userSelected === correctAnswerIndex && answered === true) {
         $("#userPick").text("You selected " + gameQuestions[currentQuestion].answerList[userSelected]);

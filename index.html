@@ -8,35 +8,42 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
-    <header>
+<body style="background-color: crimson">
+    <header class="border border-dark rounded mb-1">
         <img src="assets/images/nintendo_banner.jpg" alt="Nintendo Banner" class="headerbanner">
     </header>
-    <div class="container bg-secondary">
-        <div class="row">
-            <div class=" col-md-6 text-center">
-                <button type="button" class="btn btn-dark" id="startButton">Start!</button>
-
-                <!-- Question  -->
-                <div id="timer"></div>
-                <div id="currentQuestion"></div>
-                <div class="question"></div>
-                <div class="answerList"></div>
-                <!-- Answer -->
-                <div id="userPick"></div>
-                <div id="message"></div>
-                <div id="correctAnswer"></div>
-                <!-- Results -->
-                <div id="endGame"></div>
-                <div id="correct"></div>
-                <div id="incorrect"></div>
-                <div id="unanswered"></div>
-                <div id="button"></div>
-                
+        <div class="container bg-light">
+            <div class="row">
+                <div class="col-md-12 text-center p-5 border border-dark mb-1">
+                    <h1>Nintendo Trivia Game!</h1>
+                    <button type="button" class="btn btn-danger" id="startButton">Start!</button>
+                </div>
             </div>
-            <div class="col-md-6">
-                <div id="gifSpace"></div>
-                <div id="score"></div>    
+            <div class="row" style="height: 350px">
+                <div class=" col-md-6 text-center">
+                    
+
+                    <!-- Question  -->
+                    <div id="timer"></div>
+                    <div id="currentQuestion"></div>
+                    <div class="question"></div>
+                    <div class="answerList"></div>
+                    <!-- Answer -->
+                    <div id="userPick"></div>
+                    <div id="message"></div>
+                    <div id="correctAnswer"></div>
+                    <!-- Results -->
+                    <div id="endGame"></div>
+                    <div id="correct"></div>
+                    <div id="incorrect"></div>
+                    <div id="unanswered"></div>
+                    <div id="button"></div>
+                    
+                </div>
+                <div class="col-md-6 text-center">
+                    <div id="gifSpace"></div>
+                    <div id="score"></div>    
+                </div>
             </div>
         </div>
     </div>
