@@ -112,7 +112,7 @@ $("#startButton").on("click", function(){
 // Reset Button Function
    
 var resetButton = $("<button>");
-resetButton.addClass("btn btn-danger");
+resetButton.addClass("btn btn-red");
 resetButton.attr("id", "resetButton");
 resetButton.text("Restart");
 $("#button").append(resetButton);
@@ -196,7 +196,8 @@ var newQuestion = function () {
             var possibleChoices = $("<button>");
             possibleChoices.text(gameQuestions[currentQuestion].answerList[i])
             possibleChoices.attr({"data-index" : i});
-            possibleChoices.addClass("choice btn btn-danger m-2 border border-dark rounded");
+            possibleChoices.addClass("choice btn m-2 border border-dark rounded");
+            possibleChoices.css({"background-color": "red"})
             $(".answerList").append(possibleChoices);
         };
         timer();

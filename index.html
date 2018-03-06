@@ -8,26 +8,29 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body style="background-color: crimson">
+<body style="background-color: red">
     <header class="border border-dark rounded mb-1">
         <img src="assets/images/nintendo_banner.jpg" alt="Nintendo Banner" class="headerbanner">
     </header>
         <div class="container bg-light">
             <div class="row">
-                <div class="col-md-12 text-center p-5 border border-dark mb-1">
+                <div class="col-md-12 text-center p-5">
                     <h1>Nintendo Trivia Game!</h1>
-                    <button type="button" class="btn btn-danger" id="startButton">Start!</button>
+                    <button type="button" class="btn" id="startButton" style="background-color: red">Start!</button>
                 </div>
             </div>
-            <div class="row" style="height: 350px">
-                <div class=" col-md-6 text-center">
-                    
-
+            <div class="row">
+                <div class="col-md-12 text-center pb-5">
                     <!-- Question  -->
                     <div id="timer"></div>
                     <div id="currentQuestion"></div>
                     <div class="question"></div>
                     <div class="answerList"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=" col-md-6 text-center">
+                    
                     <!-- Answer -->
                     <div id="userPick"></div>
                     <div id="message"></div>
@@ -40,7 +43,7 @@
                     <div id="button"></div>
                     
                 </div>
-                <div class="col-md-6 text-center">
+                <div class="col-md-6 text-center pt-1 pb-2">
                     <div id="gifSpace"></div>
                     <div id="score"></div>    
                 </div>
