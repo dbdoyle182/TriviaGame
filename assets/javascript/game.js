@@ -44,7 +44,7 @@ var gameQuestions = [{
 
 // Game global variables
 
-var currentQuestion;
+var currentQuestion; 
 var correct;
 var incorrect;
 var unanswered;
@@ -100,7 +100,7 @@ var gifArray = [{
     },{
         giflink: "assets/images/top-score.gif",
         alt: "The Mario brothers dancing"
-    }]
+    }];
 $(document).ready(function(){
 // Start Button Functionality
 
@@ -263,13 +263,5 @@ var resultsPage = function() {
     endgameScore(correct);
     $(resetButton).show();
 
-    
-
-    
-
-};
-
-    
-
-
+    };
 });
