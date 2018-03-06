@@ -58,6 +58,10 @@ var messages = {
     endGame: "Let's see how much you know about Nintendo!",
     timeOut: "You ran out of time!",
 };
+var gifArray = [{
+    giflink: "assets/images/marioearth.gif",
+    alt: "Earth with Mario's face",
+}]
 $(document).ready(function(){
 // Start Button Functionality
 
@@ -132,9 +136,9 @@ var solution = function () {
     $(".question").empty();
     $(".answerList").empty();
     clearInterval(time);
-    var correctText = gameQuestions[currentQuestion].question
     var correctAnswerIndex = gameQuestions[currentQuestion].correctAnswer
     console.log(correctAnswerIndex)
+    $("#gifSpace").html("<img src=" + gifArray[currentQuestion].giflink + " alt=" + gifArray[currentQuestion].alt + ">")
     if (userSelected === correctAnswerIndex && answered === true) {
         $("#userPick").text("You selected " + gameQuestions[currentQuestion].answerList[userSelected]);
         $("#message").text(messages.rightAnswer);
